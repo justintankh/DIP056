@@ -135,7 +135,7 @@ body {
 .image-preview {
     width: auto;
     min-height: 100px;
-    border: solid #dddddd;
+    border: solid salmon;
     margin-top: 15px;
     /* Default text */
     display: flex;
