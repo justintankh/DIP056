@@ -133,9 +133,9 @@ body {
 }
 
 .image-preview {
-    width: 300px;
+    width: auto;
     min-height: 100px;
-    border: 2px solid #dddddd;
+    border: solid #dddddd;
     margin-top: 15px;
     /* Default text */
     display: flex;
