@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<h1>Upload files with fetch API</h1>
+
+<body>
+
+    <form class="form" id="myForm">
+        Select image to upload:
+        <input type="file" id="inpFile"><br>
+        <button type="submit">Upload File </button>
+    </form>
+
+    <script>
+        const myForm = document.getElementById("myForm");
+        const inpFile = document.getElementById("inpFile");
+
+        myForm.addEventListener("submit", e => {
+            e.preventDefault();
+
+            const endpoint = "upload.php";
+            const formData = new FormData();
+
+            formData.append("inpFile", inpFile.files[0]);
+
+            fetch(endpoint, {
+                method: "post",
+                body: formData
+            })
+        });
+    </script>
+
+</body>
+
+</html>
