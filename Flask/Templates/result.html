@@ -246,6 +246,11 @@
         border-radius: 5px;
         cursor: pointer;
     }
+    
+    #density {
+        width: 30%;
+        height: auto;
+    }
 </style>
 
 <head>
@@ -335,7 +340,7 @@
                         <br>
                         <div>
                             <h3>Density Map</h3>
-                            <img src="{{ Density }}" id="density">
+                            <img src="{{ url_for('static', filename='density.jpg')}}" id="density">
                         </div>
                         <div>
                             <h3>Image</h3>
