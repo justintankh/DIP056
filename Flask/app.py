@@ -1,8 +1,8 @@
 import os
 
 from flask import Flask, render_template, request, redirect, url_for
-from inference import get_prediction #Get prediction inference.py
 from werkzeug.utils import secure_filename
+from predict.py import get_prediction
 
 UPLOAD_FOLDER = './static/'
 ALLOWED_EXTENSIONS = set(['.jpg', '.jpeg'])
