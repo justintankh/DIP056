@@ -9,6 +9,11 @@
     
     body {
         font-family: monospace;
+        background: grey;
+    }
+    
+    h4 {
+        color: black;
     }
     
     .container {
@@ -22,6 +27,8 @@
     }
     
     .menu-title {
+        width: 350px;
+        margin: 0 auto;
         text-align: center;
         margin-bottom: 20px;
     }
@@ -46,10 +53,10 @@
     
     .item-title {
         position: absolute;
-        top: -1px;
-        right: -1px;
+        top: 0px;
+        right: 0px;
         background: salmon;
-        color: blanchedalmond;
+        color: black;
         padding: 7px;
         border-left: 2px solid #000;
         border-bottom: 2px solid #000;
@@ -357,14 +364,18 @@
 <body>
     <div class="container">
         <div class="row">
-            <h1 class="menu-title">DIP056 Crowd Counting</h1>
+            <div class="header">
+                <h1 class="menu-title">DIP056 Crowd Counting</h1>
+            </div>
             <div class="col-lg-4 col-lg-t100 col-lg-m100">
                 <div class="item_1">
                     <div class="item-title">
-                        <h2>Information</h2>
+                        <h1>Information</h1>
                     </div>
                     <div class="information">
-                        <h4>Dataset:</h4>
+
+                        <h1 style="color: chartreuse;font-size: 70%;">To be filled, Information <br> currently INACCURATE!</h1>
+                        <h4><br>Dataset:</h4>
                         <p>Shanghai Tech<br><br></p>
                         <h4>Modal:</h4>
                         <p>Pytorch<br><br></p>
@@ -543,6 +554,11 @@
                                 modal.style.display = "none";
                             }
                         </script>
+                    </div>
+                    <div class="get-zone 2">
+                        <h1 style="color: chartreuse;font-size: 150%;">If time allows, insert Organisation Chart</h1>
+                        <h1><br>Team Members:</h1>
+                        <h2 style="color:black">Sam (Leader)<br>Zhong En<br>Rachael<br>Justin (Treasurer)<br>Ronn<br>Harrick<br>Ding Hao<br>Sarah<br>Aidil</h2>
                     </div>
                 </div>
             </div>
