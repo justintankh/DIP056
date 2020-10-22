@@ -9,7 +9,7 @@
     
     body {
         font-family: monospace;
-        background: grey;
+        background: white;
     }
     
     h4 {
@@ -475,6 +475,13 @@
                                 }
 
                             }
+
+                            let checkSize = function(threshold) {
+                                const file_size_raw = realFileBtn.files.item(0).size;
+                                const file_size = Math.round((file_size_raw / 1024));
+                                return file_size < threshold;
+                            };
+
 
                             const uploadBtn = document.getElementById("upload-file");
 
