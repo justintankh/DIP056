@@ -180,9 +180,15 @@
 								<form class="form-signin" method=post enctype=multipart/form-data>									<div id="Line">
 			
 								</div>
+								<h2 class="h5 mb-3 font-weight-normal"><i>{{Prediction}}</i></h2>
 								<br>
 								<div>
-									<h3>....Waiting for upload</h3>
+									<h3>Density Map</h3>
+									<img src="{{ Density }}" id="density">
+								</div>
+								<div>
+									<h3>Image</h3>
+									<img src="{{ url_for('static', filename=File)}}" id="crowd">
 								</div>
 								<br>
 								<br>
