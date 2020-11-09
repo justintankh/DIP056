@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='css/style.css' rel='stylesheet' type='text/css'>
+    <title>DIP 056 Experimental</title>
+</head>
+
+<body>
+
+    <body>
+        <div class="container">
+            <div class="row">
+                <h1 class="menu-title">DIP 056 Crowd Counting</h1>
+                <div class="col-lg-4">
+                    <div class="item" id="lower">
+                        <div class="item-title">
+                            <h2>Image upload</h2>
+                        </div>
+                        <input type="file" name="inpFile" id="inpFile">
+                        <div class="image-preview" id="imagePreview">
+                            <img src="" alt="Image Preview" class="image-preview__image">
+                            <span class="image-preview__default-text">Image Preview</span>
+                        </div>
+                        <script>
+                            const inpFile = document.getElementById("inpFile")
+                            const previewcontainer = document,
+                                getElementById("imagePreview");
+                            const previewImage = previewContainer.querySelector(".image-preview__image")
+                            const previewImage = previewContainer.querySelector(".image-preview__defaulttext")
+
+                            inpFile.addEventListener("change", function() {
+                                const file = this.files[0];
+
+                                console.log(file);
+                            });
+                        </script>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="item">
+                        <div class="item-title">
+                            <h2>Sometwotwo</h2>
+                        </div>
+                        <p>"To fear the future and give up on forging ahead is simply the mentality of cowards"</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-lg-tablet ">
+                    <div class="item">
+                        <div class="item-title">
+                            <h2>Somethreethree</h2>
+                        </div>
+                        <p>"Hard work won't betray you. Though at times it will betray your dreams. Working hard doesn't necessarily mean you'll fulfil your dreams. It's actually more common for it to not bear fruit. But just the fact that you did your best
+                            can serve as a sort of consolation"</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </body>

@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html>
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    
+    body {
+        font-family: monospace;
+    }
+    
+    .container {
+        position: relative;
+        top: 20px;
+        margin: 15px;
+    }
+    
+    .row {
+        width: 100%;
+    }
+    
+    .menu-title {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    .item {
+        position: relative;
+        top: 0px;
+        margin: 15px;
+        padding: 25px;
+        border: 3px solid black;
+        background: rgb(104, 124, 238);
+    }
+    
+    .item_1 {
+        position: relative;
+        top: 0px;
+        margin: 15px;
+        padding: 25px;
+        border: 3px solid black;
+        background: rgb(104, 124, 238);
+    }
+    
+    .item-title {
+        position: absolute;
+        top: -1px;
+        right: -1px;
+        background: salmon;
+        color: blanchedalmond;
+        padding: 7px;
+        border-left: 2px solid #000;
+        border-bottom: 2px solid #000;
+    }
+    
+    .item p {
+        margin-top: 18px;
+        text-align: left;
+        font-size: 80%;
+    }
+    
+    img {
+        max-width: 100%;
+        max-height: 100%;
+        min-width: 280px;
+    }
+    /* Simple Responsive Framework. */
+    /*------ Desktop ------*/
+    
+    @media (min-width: 992px) {
+        .col-lg-1,
+        .col-lg-2,
+        .col-lg-3,
+        .col-lg-4,
+        .col-lg-5,
+        .col-lg-6,
+        .col-lg-7,
+        .col-lg-8,
+        .col-lg-9,
+        .col-lg-10,
+        .col-lg-11,
+        .col-lg-12 {
+            float: left;
+        }
+        .col-lg-1 {
+            width: 8.33%;
+        }
+        .col-lg-2 {
+            width: 16.66%;
+        }
+        .col-lg-3 {
+            width: 25%;
+        }
+        .col-lg-4 {
+            width: 33.33%;
+        }
+        .col-lg-5 {
+            width: 41.66%;
+        }
+        .col-lg-6 {
+            width: 50%;
+        }
+        .col-lg-7 {
+            width: 58.33%;
+        }
+        .col-lg-8 {
+            width: 66.66%;
+        }
+        .col-lg-9 {
+            width: 74.99%;
+        }
+        .col-lg-10 {
+            width: 83.33%;
+        }
+        .col-lg-11 {
+            width: 91.66%;
+        }
+        .col-lg-12 {
+            width: 100%;
+        }
+    }
+    /*------ Tablet ------*/
+    
+    @media (min-width: 768px) and (max-width: 991px) {
+        .col-lg-t33 {
+            width: 33.33%;
+        }
+        .col-lg-t50 {
+            width: 50%;
+            float: left;
+        }
+        .col-lg-t100 {
+            width: 100%;
+            float: left;
+        }
+    }
+    /*------ Mobile ------*/
+    
+    @media (max-width: 767px) {
+        .col-lg-m100 {
+            width: 100%;
+            float: left;
+        }
+    }
+    
+    .drop-zone {
+        margin-top: 30px;
+        width: auto;
+        height: 300px;
+        padding: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-family: "Quicksand", sans-serif;
+        font-weight: 500;
+        font-size: 20px;
+        cursor: pointer;
+        color: white;
+        border: 4px dashed salmon;
+        border-radius: 10px;
+    }
+    
+    .drop-zone--over {
+        border-style: solid;
+    }
+    
+    .drop-zone__input {
+        display: none;
+    }
+    
+    .drop-zone__thumb {
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        overflow: hidden;
+        background-color: #cccccc;
+        background-size: cover;
+        position: relative;
+    }
+    
+    .drop-zone__thumb::after {
+        content: attr(data-label);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 5px 0;
+        color: #ffffff;
+        background: rgba(0, 0, 0, 0.75);
+        font-size: 14px;
+        text-align: center;
+    }
+    
+    input[type=submit] {
+        background-color: white;
+        border: 2px dashed salmon;
+        color: black;
+        padding: 8px 16px;
+        text-decoration: none;
+        margin: 4px 2px;
+        cursor: pointer;
+        width: 100%;
+    }
+    
+    .information {
+        margin-top: 10px;
+        padding: 10px;
+        font-weight: 500;
+        font-size: 25px;
+    }
+    
+    .get-zone-2 {
+        margin-top: 30px;
+        width: auto;
+        height: auto;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-family: "Quicksand", sans-serif;
+        font-weight: 500;
+        font-size: 20px;
+        cursor: pointer;
+        color: white;
+        border: 4px hidden white;
+        border-radius: 10px;
+    }
+    /* Remove if unneccessary */
+    
+    #custom-text {
+        font-family: sans-serif;
+        color: #44dfdf;
+    }
+    /* Image pop out https://www.w3schools.com/howto/howto_css_modal_images.asp */
+    /* Style the Image Used to Trigger the Modal */
+    
+    .myImg {
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    
+    .myImg:hover {
+        opacity: 0.7;
+    }
+    /* The Modal (background) */
+    
+    .modal {
+        display: none;
+        /* Hidden by default */
+        position: fixed;
+        /* Stay in place */
+        z-index: 1;
+        /* Sit on top */
+        padding-top: 100px;
+        /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%;
+        /* Full width */
+        height: 100%;
+        /* Full height */
+        overflow: auto;
+        /* Enable scroll if needed */
+        background-color: rgb(0, 0, 0);
+        /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.9);
+        /* Black w/ opacity */
+    }
+    /* Modal Content (Image) */
+    
+    .modal-content {
+        margin: auto;
+        display: block;
+        width: 80%;
+        max-width: 700px;
+    }
+    /* Caption of Modal Image (Image Text) - Same Width as the Image */
+    
+    #caption {
+        margin: auto;
+        display: block;
+        width: 80%;
+        max-width: 700px;
+        text-align: center;
+        color: #ccc;
+        padding: 10px 0;
+        height: 150px;
+    }
+    /* Add Animation - Zoom in the Modal */
+    
+    .modal-content,
+    #caption {
+        -webkit-animation-name: zoom;
+        -webkit-animation-duration: 0.6s;
+        animation-name: zoom;
+        animation-duration: 0.6s;
+    }
+    
+    @-webkit-keyframes zoom {
+        from {
+            -webkit-transform: scale(0)
+        }
+        to {
+            -webkit-transform: scale(1)
+        }
+    }
+    
+    @keyframes zoom {
+        from {
+            transform: scale(0)
+        }
+        to {
+            transform: scale(1)
+        }
+    }
+    /* The Close Button */
+    
+    .close {
+        position: absolute;
+        top: 15px;
+        right: 35px;
+        color: #f1f1f1;
+        font-size: 40px;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+    
+    .close:hover,
+    .close:focus {
+        color: #bbb;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    /* 100% Image Width on Smaller Screens */
+    
+    @media only screen and (max-width: 700px) {
+        .modal-content {
+            width: 100%;
+        }
+    }
+</style>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DIP056 Crowd Counting</title>
+    <link href='css/style.css' rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <h1 class="menu-title">DIP056 Crowd Counting</h1>
+            <div class="col-lg-4 col-lg-t100 col-lg-m100">
+                <div class="item_1">
+                    <div class="item-title">
+                        <h2>Information</h2>
+                    </div>
+                    <div class="information">
+                        <h4>Dataset:</h4>
+                        <p>Shanghai Tech<br><br></p>
+                        <h4>Modal:</h4>
+                        <p>Pytorch<br><br></p>
+                        <h4>Accuracy:</h4>
+                        <p>80%<br><br></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-lg-t100 col-lg-m100">
+                <div class="item">
+                    <div class="item-title">
+                        <h1>Count your Crowd!</h1>
+                    </div>
+                    <form method="post" enctype="multipart/form-data">
+                        <div class="drop-zone">
+                            <span class="drop-zone__prompt">Drop file here or click to upload</span>
+                            <input type="file" name="file" class="drop-zone__input" id="input-file">
+                        </div>
+                        <p><input type="submit" value="Upload Image" name="submit" id="upload-file"></p>
+
+                        <script type="text/javascript">
+                            const realFileBtn = document.getElementById("input-file");
+
+                            document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
+                                const dropZoneElement = inputElement.closest(".drop-zone");
+
+                                dropZoneElement.addEventListener("click", (e) => {
+                                    inputElement.click();
+                                });
+
+                                inputElement.addEventListener("change", (e) => {
+                                    if (inputElement.files.length) {
+                                        updateThumbnail(dropZoneElement, inputElement.files[0]);
+                                    }
+                                });
+
+                                dropZoneElement.addEventListener("dragover", (e) => {
+                                    e.preventDefault();
+                                    dropZoneElement.classList.add("drop-zone--over");
+                                });
+
+                                ["dragleave", "dragend"].forEach((type) => {
+                                    dropZoneElement.addEventListener(type, (e) => {
+                                        dropZoneElement.classList.remove("drop-zone--over");
+                                    });
+                                });
+
+                                dropZoneElement.addEventListener("drop", (e) => {
+                                    e.preventDefault();
+
+                                    if (e.dataTransfer.files.length) {
+                                        inputElement.files = e.dataTransfer.files;
+                                        updateThumbnail(dropZoneElement, e.dataTransfer.files[0]);
+                                    }
+
+                                    dropZoneElement.classList.remove("drop-zone--over");
+                                });
+                            });
+
+                            /**
+                             * Updates the thumbnail on a drop zone element.
+                             *
+                             * @param {HTMLElement} dropZoneElement
+                             * @param {File} file
+                             */
+
+                            function updateThumbnail(dropZoneElement, file) {
+                                let thumbnailElement = dropZoneElement.querySelector(".drop-zone__thumb");
+
+                                // First time - remove the prompt
+                                if (dropZoneElement.querySelector(".drop-zone__prompt")) {
+                                    dropZoneElement.querySelector(".drop-zone__prompt").remove();
+                                }
+
+                                // First time - there is no thumbnail element, so lets create it
+                                if (!thumbnailElement) {
+                                    thumbnailElement = document.createElement("div");
+                                    thumbnailElement.classList.add("drop-zone__thumb");
+                                    dropZoneElement.appendChild(thumbnailElement);
+                                }
+
+                                thumbnailElement.dataset.label = file.name;
+
+                                // Show thumbnail for image files
+                                if (file.type.startsWith("image/")) {
+                                    const reader = new FileReader();
+
+                                    reader.readAsDataURL(file);
+                                    reader.onload = () => {
+                                        thumbnailElement.style.backgroundImage = `url('${reader.result}')`;
+                                    };
+                                } else {
+                                    alert("Please upload an image-type file.")
+                                    thumbnailElement.style.backgroundImage = null;
+                                    location.reload();
+                                }
+
+                            }
+
+                            const uploadBtn = document.getElementById("upload-file");
+
+                            uploadBtn.addEventListener("click", function() {
+                                if (realFileBtn.files.length > 0) {
+                                    if (!checkSize(100)) {
+                                        alert("File exceeds maximum memory allowance of 100kb.");
+                                        realFileBtn.value = "";
+                                        location.reload();
+                                    } else {
+                                        // Check extensions
+                                        let ext = realFileBtn.value.split('.').pop();
+                                        if (ext != "jpg" && ext != "jpeg") {
+                                            alert("Invalid file type: " + ext + ". File must be either .jpg or .jpeg formats");
+                                            realFileBtn.value = "";
+                                            location.reload();
+                                        } else {
+                                            updateThumbnail(dropZoneElement, inputElement.files[0]);
+                                        }
+                                    }
+                                } else {
+                                    alert("No file uploaded.")
+                                    location.reload();
+                                }
+                            });
+                        </script>
+
+                    </form>
+
+                </div>
+            </div>
+            <div class="col-lg-4 col-lg-t100 col-lg-m100">
+                <div class="item_1">
+                    <div class="item-title">
+                        <h1>How it works!</h1>
+                    </div>
+                    <div class="get-zone-2">
+                        <!-- Trigger the Modal -->
+                        <img class="myImg" src="./uploads/1.jpg" alt="Timetable" width="auto">
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12 col-lg-t100 col-lg-m100">
+                <div class="item">
+                    <div class="item-title">
+                        <h1>Team DIP056!</h1>
+                    </div>
+                    <div class="get-zone-2">
+                        <!-- Trigger the Modal -->
+                        <img class="myImg" src="./uploads/2.jpg" alt="Team" width="auto">
+                        <!-- The Modal -->
+                        <div id="myModal" class="modal">
+                            <!-- The Close Button -->
+                            <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
+                            <!-- Modal Content (The Image) -->
+                            <img class="modal-content" id="img01">
+                            <!-- Modal Caption (Image Text) -->
+                            <div id="caption"></div>
+                        </div>
+                        <script>
+                            // Get the modal
+                            var modal = document.getElementById('myModal');
+                            // Get the image and insert it inside the modal - use its "alt" text as a caption
+                            var img = $('.myImg');
+                            var modalImg = $("#img01");
+                            var captionText = document.getElementById("caption");
+                            $('.myImg').click(function() {
+                                modal.style.display = "block";
+                                var newSrc = this.src;
+                                modalImg.attr('src', newSrc);
+                                captionText.innerHTML = this.alt;
+                            });
+                            // Get the <span> element that closes the modal
+                            var span = document.getElementsByClassName("close")[0];
+                            // When the user clicks on <span> (x), close the modal
+                            span.onclick = function() {
+                                modal.style.display = "none";
+                            }
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
